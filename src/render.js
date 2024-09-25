@@ -32,12 +32,10 @@ export async function render(hanoi) {
     for (let j = 0; j < tower.length; j++) {
       const discNumber = tower[j];
       ctx.fillStyle = colors.get(discNumber);
-      ctx.fillRect(
-        maxDiscWidth * i,
-        canvas.height - (j + 1) * discHeight,
-        (maxDiscWidth / discCount) * discNumber,
-        discHeight
-      );
+      const width = (maxDiscWidth / discCount) * discNumber;
+      const x = maxDiscWidth * i + (maxDiscWidth - width) / 2;
+      const y = canvas.height - (j + 1) * discHeight;
+      ctx.fillRect(x, y, width, discHeight);
     }
   }
   ctx.closePath();
