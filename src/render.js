@@ -1,7 +1,6 @@
 const moveCountElement = document.querySelector("#move-count");
 const container = document.querySelector("div#canvas-container");
 const containerDimensions = container?.getBoundingClientRect();
-console.log(container?.getBoundingClientRect());
 const canvas = document.createElement("canvas");
 canvas.width = containerDimensions?.width ?? canvas.width;
 canvas.height = containerDimensions?.height ?? canvas.height;
@@ -45,6 +44,6 @@ export async function render(hanoi) {
   ctx.closePath();
 
   await new Promise((resolve) => {
-    document.addEventListener("keydown", resolve);
+    document.addEventListener("keydown", resolve, { once: true });
   });
 }
