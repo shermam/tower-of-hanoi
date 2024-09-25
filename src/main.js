@@ -1,6 +1,6 @@
 class Hanoi {
-  state = [[8, 7, 6, 5, 4, 3, 2, 1], [], []];
   moveCount = 0;
+  state = [[8, 7, 6, 5, 4, 3, 2, 1], [], []];
 
   constructor(render) {
     this.render = render;
