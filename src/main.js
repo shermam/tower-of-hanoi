@@ -1,3 +1,5 @@
+import { render } from "./render.js";
+
 class Hanoi {
   moveCount = 0;
   state = [[8, 7, 6, 5, 4, 3, 2, 1], [], []];
@@ -28,14 +30,6 @@ class Hanoi {
 }
 
 (async () => {
-  async function render(hanoi) {
-    const hanoiElement = document.querySelector("#hanoi");
-    if (!hanoiElement) throw new Error("Element not found");
-    hanoiElement.innerHTML = JSON.stringify(hanoi, null, 2);
-    await new Promise((resolve) => {
-      document.addEventListener("keydown", resolve);
-    });
-  }
   const hanoi = new Hanoi(render);
   await render(hanoi);
   hanoi.run();
